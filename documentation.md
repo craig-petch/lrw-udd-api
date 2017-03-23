@@ -151,7 +151,13 @@ Returns:
 }
 ```
 
+Extension PATCHs may be combined with other PATCH data, and multiple `CONTROLLER`'s extensions can be updaetd in a single PATCH.
+
 Currently there is no method to delete an extension, although one may be set to `null` through a PATCH. This is pending the outcome of [issue #46](https://github.com/jiscdev/lrw-udd-api/issues/46)
+
+### Delete all models
+
+Currently this feature is disabled to prevent accidental mass deletion. We are planning to introduce a new scope that will allow individual clients to FLUSH an entity for an organisation.
 
 ### Soft Deletions
 
@@ -167,16 +173,6 @@ The deletion date is stored in the DELETED_AT field. This can be queried like an
 
 `GET /student?trashed=1&query={"DELETED_AT": {"$gte": "2016-01-01 00:00"}}`
 
-### Permanent Deletions
-
-In order to permanently delete a model (remove it from the database), use the `force` query parameter:
-
-`DELETE /student/:id?force=1`
-
-If your model has previously been soft deleted, you would need to combine this with the `trashed` query parameter, otherwise it will not be found:
-
-`DELETE /student/:id?force=1&trashed=1`
-
 To restore a model, send a PATCH request to update the model and set the `deleted` field to null. It is *not* compulsory to remove the DELETED_AT field in case you wish to keep this field for analytical purposes.
 
 ```
@@ -188,7 +184,16 @@ PATCH /student/:id?trashed=1
 }
 ```
 
-_Note that using DELETE in api versions prior to the introduction of soft deletes will cause the model to be permanently removed from the database._
+### Permanent Deletions
+
+In order to permanently delete a model (remove it from the database), use the `force` query parameter:
+
+`DELETE /student/:id?force=1`
+
+If your model has previously been soft deleted, you would need to combine this with the `trashed` query parameter, otherwise it will not be found:
+
+`DELETE /student/:id?force=1&trashed=1`
+
 
 ### Select
 `GET /student?select=PARENTS_ED`
