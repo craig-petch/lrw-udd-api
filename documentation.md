@@ -151,6 +151,8 @@ Returns:
 }
 ```
 
+Currently there is no method to delete an extension, although one may be set to `null` through a PATCH. This is pending the outcome of [issue #46](https://github.com/jiscdev/lrw-udd-api/issues/46)
+
 ### Soft Deletions
 
 All models in the UDD are soft deleted by default.
