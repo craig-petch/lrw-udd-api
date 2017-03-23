@@ -51,10 +51,15 @@ Where `COURSE_ID` is `"COURSE_1"`
 }
 ```
 
+Primary keys must be passed to a POST unless the model contains composite keys (e.g. `moduleVleMap`), in which case the LRW will generate a [UUID (v4)](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_.28random.29) automatically.
+
+
 ### Update a course
 
 `PUT /models/course/COURSE_1`
+
 or
+
 `PATCH /models/course/COURSE_1`
 
 ```
@@ -65,6 +70,86 @@ or
 
 If using POST to update a model, the primary key _must_ be present in the request JSON body.
 
+### Extensions
+
+To add an extension to a model:
+
+`PUT/PATCH /models/course/COURSE_2`
+```
+{
+  "extensions": {
+  	"ht2": {
+  		"foo": "bar"
+  	}
+  }
+}
+```
+
+Returns:
+
+```
+{
+  "COURSE_ID": "COURSE_2",
+  "SUBJECT": null,
+  "TITLE": "Test 1",
+  "COURSE_AIM": null,
+  "INST_TIER_1": null,
+  "INST_TIER_2": null,
+  "INST_TIER_3": null,
+  "TENANT_ID": null,
+  "AWARDING_BODY": null,
+  "DELETED_AT": null,
+  "CREATED_AT": null,
+  "UPDATED_AT": "2017-03-23T17:00:17.000Z",
+  "deleted": false,
+  "extensions": {
+    "ht2": {
+      "foo": "bar"
+    }
+  }
+}
+```
+
+Additional PATCHs will add to the existing extension set:
+
+`PUT/PATCH /models/course/COURSE_2`
+```
+{
+  "extensions": {
+  	"unicon": {
+  		"hello": "world"
+  	}
+  }
+}
+```
+
+Returns:
+
+```
+{
+  "COURSE_ID": "COURSE_2",
+  "SUBJECT": null,
+  "TITLE": "Test 1",
+  "COURSE_AIM": null,
+  "INST_TIER_1": null,
+  "INST_TIER_2": null,
+  "INST_TIER_3": null,
+  "TENANT_ID": null,
+  "AWARDING_BODY": null,
+  "DELETED_AT": null,
+  "CREATED_AT": null,
+  "UPDATED_AT": "2017-03-23T17:01:06.000Z",
+  "deleted": false,
+  "extensions": {
+    "ht2": {
+      "foo": "bar"
+    },
+    "unicon": {
+      "hello": "world"
+    }
+  }
+}
+```
 
 ### Soft Deletions
 
