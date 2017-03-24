@@ -221,7 +221,6 @@ If your model has previously been soft deleted, you would need to combine this w
 
 
 ### Limit
-Only overrides options.limit if the queried limit is lower.
 
 `GET /student?limit=10`
 
