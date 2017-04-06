@@ -11,23 +11,26 @@
 The new version of the UDD LRW API brings in a relational structure to the UDD. All entities now have a primary key which should be used to GET, POST, PUT, PATCH and DELETE records with.
 
 ### Available entity endpoints
+The model names below are *not* case sensitive and can contain underscores. The convention is to use all lower case letters without underscores as discussed in #47.
+
 ```
-/models/assessmentInstance
+/models/assessmentinstance
 /models/course
-/models/courseInstance
+/models/courseinstance
 /models/institution
 /models/module
-/models/moduleInstance
-/models/moduleVleMap
+/models/moduleinstance
+/models/modulevlemap
 /models/period
 /models/staff
-/models/staffCourseInstance
-/models/staffModuleInstance
+/models/staffcourseinstance
+/models/staffmoduleinstance
 /models/student
-/models/studentAssessmentInstance
-/models/studentCourseInstance
-/models/studentCourseMembership
-/models/studentModuleInstance
+/models/studentassessmentinstance
+/models/studentcourseinstance
+/models/studentcoursemembership
+/models/studentidmap
+/models/studentmoduleinstance
 ```
 
 
