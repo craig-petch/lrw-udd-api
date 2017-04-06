@@ -275,4 +275,4 @@ e.g. Student relation to StudentModuleInstance is available as student.studentMo
 
 Can be nested to fetch relations of relations
 
-`GET/POST/PUT /student?populate={"path":"tutor","populate":{"path":"staffModuleInstances","model":"StaffModuleInstance"}}`
+`GET/POST/PUT /student?populate={"path":"tutor","populate":{"path":"staffModuleInstances"}}`
