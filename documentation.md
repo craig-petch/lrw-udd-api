@@ -1,6 +1,6 @@
 # Jisc UDD LRW API
 
-## Version 0.1.0
+## Version 0.2.1
 
 ### Compatabile with UDD Version 1.3.0
 
