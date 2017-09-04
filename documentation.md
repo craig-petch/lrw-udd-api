@@ -1,10 +1,10 @@
 # Jisc UDD LRW API
 
-## Version 0.2.1
+## Version 0.3.2
 
-### Compatabile with UDD Version 1.3.0
+### Compatabile with UDD Version 1.3.1
 
-#### Schema https://github.com/jiscdev/analytics-udd/tree/v1.3.0
+#### Schema https://github.com/jiscdev/analytics-udd/tree/v1.3.1
 
 ### About
 
